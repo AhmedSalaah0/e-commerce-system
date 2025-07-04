@@ -1,0 +1,14 @@
+# VS Code
+.vscode/
+
+# === Java compiled files ===
+*.class
+*.jar
+*.war
+*.ear
+
+# === Build directories ===
+/target/
+/build/
+/out/
+/bin/
