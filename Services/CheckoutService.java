@@ -15,7 +15,7 @@ import Entities.CartItem;
 public class CheckoutService implements ICheckoutService
 {
 
-    public void processCheckout(Customer customer, Cart cart) {
+    public Invoice processCheckout(Customer customer, Cart cart) {
         if (customer == null || cart == null) {
             throw new IllegalArgumentException("Customer and cart cannot be null.");
         }
@@ -63,7 +63,8 @@ public class CheckoutService implements ICheckoutService
         System.out.println("Shipping Cost:\t\t" + quotation.getShippingCost());
         System.out.println("Total:\t\t\t" + (quotation.getSubtotal() + quotation.getShippingCost()));
 
-    cart.getItems().clear();
+        cart.getItems().clear();
+        return invoice;
     }
 
     public Quotation calculateTotalPrice(Cart cart) {
@@ -91,5 +92,18 @@ public class CheckoutService implements ICheckoutService
         customer.getInvoices().remove(invoice);
     }
 
+    public void showAllInvoices(Customer customer) {
+        if (customer == null) {
+            throw new IllegalArgumentException("Customer cannot be null.");
+        }
+        if (customer.getInvoices().isEmpty()) {
+            System.out.println("No invoices found for this customer.");
+            return;
+        }
+        System.out.println("Invoices for " + customer.getName() + ":");
+        for (Invoice invoice : customer.getInvoices()) {
+            System.out.println("Invoice Number: " + invoice.getInvoiceNumber() + ", Date: " + invoice.getDate() + ", Total: " + invoice.getSubtotal());
+        }
+    }
 
 }
