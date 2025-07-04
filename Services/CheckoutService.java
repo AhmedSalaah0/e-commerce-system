@@ -98,12 +98,13 @@ public class CheckoutService implements ICheckoutService
         }
         if (customer.getInvoices().isEmpty()) {
             System.out.println("No invoices found for this customer.");
-            return;
         }
-        System.out.println("Invoices for " + customer.getName() + ":");
-        for (Invoice invoice : customer.getInvoices()) {
-            System.out.println("Invoice Number: " + invoice.getInvoiceNumber() + ", Date: " + invoice.getDate() + ", Total: " + invoice.getSubtotal());
+        else
+        {
+            System.out.println("Invoices for " + customer.getName() + ":");
+            for (Invoice invoice : customer.getInvoices()) {
+                System.out.println("Invoice Number: " + invoice.getInvoiceNumber() + ", Date: " + invoice.getDate() + ", Total: " + invoice.getSubtotal());
+            }
         }
     }
-
 }
