@@ -29,8 +29,9 @@ public class Main {
         while (true) {
         if (showProducts){    
         System.out.println("Available Products:");
-        for (Product product : products) {
-            System.out.println(product.getProductName() + " - Price: " + product.getPrice() + " - Quantity: " + product.getQuantity());
+        for (int i = 0; i < products.size(); i++) {
+            Product product = products.get(i);
+            System.out.println((i + 1) + ". " + product.getProductName() + " - Price: " + product.getPrice() + " - Quantity: " + product.getQuantity());
         }
         System.out.println("Please select a product to add to your cart.");
         int productIndex = Integer.parseInt(System.console().readLine()) - 1;
@@ -48,11 +49,10 @@ public class Main {
 
         try {
             cartService.addItemToCart(selectedProduct, quantity);
+            System.out.println("Item added to cart: " + selectedProduct.getProductName() + " - Quantity: " + quantity);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return;
         }
-        System.out.println("Item added to cart: " + selectedProduct.getProductName() + " - Quantity: " + quantity);
     }
         Cart cart = customer.getCart();
             

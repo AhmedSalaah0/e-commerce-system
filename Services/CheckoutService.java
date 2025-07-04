@@ -59,9 +59,9 @@ public class CheckoutService implements ICheckoutService
             " - Price: " + item.getProduct().getPrice() * item.getQuantity());
         }
         System.out.println("----------------------");
-        System.out.println("Subtotal:\t\t" + quotation.getSubtotal());
-        System.out.println("Shipping Cost:\t\t" + quotation.getShippingCost());
-        System.out.println("Total:\t\t\t" + (quotation.getSubtotal() + quotation.getShippingCost()));
+        System.out.println("Subtotal\t\t" + quotation.getSubtotal());
+        System.out.println("Shipping\t\t" + quotation.getShippingCost());
+        System.out.println("Amount\t\t\t" + (quotation.getSubtotal() + quotation.getShippingCost()));
 
         cart.getItems().clear();
         return invoice;
