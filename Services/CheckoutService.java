@@ -33,7 +33,7 @@ public class CheckoutService implements ICheckoutService
         customer.getInvoices().add(invoice);
 
 
-        System.out.println("Checkout successful.\n" +
+        System.out.println("\nCheckout successful. invoice number " + invoice.getInvoiceNumber() + "\n\n" +
         "** Shipment notice **");
         ArrayList<CartItem> UnShippableItems = new ArrayList<>();
         int totalWeight = 0;
